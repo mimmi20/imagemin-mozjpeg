@@ -23,7 +23,7 @@
     }
   ],
   "engines": {
-    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+    "node": ">=20.0.0"
   },
   "scripts": {
     "test": "xo && ava"
@@ -43,13 +43,13 @@
     "optimize"
   ],
   "dependencies": {
-    "execa": "^6.0.0",
+    "execa": "^9.6.0",
     "is-jpg": "^3.0.0",
-    "mozjpeg": "^8.0.0"
+    "mozjpeg": "github:mimmi20/mozjpeg-bin#main"
   },
   "devDependencies": {
-    "ava": "^3.15.0",
-    "is-progressive": "^3.0.0",
-    "xo": "^0.47.0"
+    "ava": "^6.4.0",
+    "is-progressive": "^5.0.1",
+    "xo": "^1.1.0"
   }
 }

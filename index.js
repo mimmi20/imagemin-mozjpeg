@@ -12,33 +12,33 @@ const imageminMozjpeg = options => async buffer => {
 	};
 
 	if (!Buffer.isBuffer(buffer)) {
-		return Promise.reject(new TypeError('Expected a buffer'));
+		throw new TypeError('Expected a buffer');
 	}
 
 	if (!isJpg(buffer)) {
-		return Promise.resolve(buffer);
+		return buffer;
 	}
 
 	// TODO: Remove these sometime far in the future
 	if (options.fastcrush) {
-		return Promise.reject(new Error('Option `fastcrush` was renamed to `fastCrush`'));
+		throw new Error('Option `fastcrush` was renamed to `fastCrush`');
 	}
 
 	if (options.maxmemory) {
-		return Promise.reject(new Error('Option `maxmemory` was renamed to `maxMemory`'));
+		throw new Error('Option `maxmemory` was renamed to `maxMemory`');
 	}
 
 	if (options.notrellis) {
-		return Promise.reject(new Error('Option `notrellis` was renamed to `trellis` and inverted'));
+		throw new Error('Option `notrellis` was renamed to `trellis` and inverted');
 	}
 
 	if (options.noovershoot) {
-		return Promise.reject(new Error('Option `noovershoot` was renamed to `overshoot` and inverted'));
+		throw new Error('Option `noovershoot` was renamed to `overshoot` and inverted');
 	}
 
 	const args = [];
 
-	if (typeof options.quality !== 'undefined') {
+	if (options.quality !== undefined) {
 		args.push('-quality', options.quality);
 	}
 
@@ -58,7 +58,7 @@ const imageminMozjpeg = options => async buffer => {
 		args.push('-fastcrush');
 	}
 
-	if (typeof options.dcScanOpt !== 'undefined') {
+	if (options.dcScanOpt !== undefined) {
 		args.push('-dc-scan-opt', options.dcScanOpt);
 	}
 
@@ -90,7 +90,7 @@ const imageminMozjpeg = options => async buffer => {
 		args.push('-quant-baseline', options.quantBaseline);
 	}
 
-	if (typeof options.quantTable !== 'undefined') {
+	if (options.quantTable !== undefined) {
 		args.push('-quant-table', options.quantTable);
 	}
 
@@ -107,7 +107,7 @@ const imageminMozjpeg = options => async buffer => {
 	}
 
 	const {stdout} = await execa(mozjpeg, args, {
-		encoding: null,
+		encoding: 'buffer',
 		input: buffer,
 		maxBuffer: Number.POSITIVE_INFINITY,
 	});

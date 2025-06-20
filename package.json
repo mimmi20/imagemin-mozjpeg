@@ -26,7 +26,11 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "ava",
+    "prettier": "prettier --config prettier.config.mjs --check index.js test.js eslint.config.mjs prettier.config.mjs",
+    "prettier-fix": "prettier --config prettier.config.mjs --write index.js test.js eslint.config.mjs prettier.config.mjs",
+    "eslint": "eslint . --config eslint.config.mjs",
+    "eslint-fix": "eslint . --config eslint.config.mjs --fix"
   },
   "files": [
     "index.js"
@@ -48,8 +52,19 @@
     "mozjpeg": "github:mimmi20/mozjpeg-bin#main"
   },
   "devDependencies": {
+    "@eslint/js": "^9.27.0",
     "ava": "^6.4.0",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
+    "globals": "^16.2.0",
     "is-progressive": "^5.0.1",
-    "xo": "^1.1.0"
+    "prettier": "^3.5.3",
+    "prettier-eslint": "^16.4.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.0"
+  },
+  "overrides": {
+    "eslint": "$eslint"
   }
 }

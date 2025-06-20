@@ -26,7 +26,7 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "test": "xo && ava",
+    "test": "ava",
     "prettier": "prettier --config prettier.config.mjs --check index.js test.js eslint.config.mjs prettier.config.mjs",
     "prettier-fix": "prettier --config prettier.config.mjs --write index.js test.js eslint.config.mjs prettier.config.mjs",
     "eslint": "eslint . --config eslint.config.mjs",
@@ -62,8 +62,7 @@
     "prettier": "^3.5.3",
     "prettier-eslint": "^16.4.2",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.33.0",
-    "xo": "^1.1.0"
+    "typescript-eslint": "^8.33.0"
   },
   "overrides": {
     "eslint": "$eslint"

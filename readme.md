@@ -4,8 +4,8 @@
 
 ## Install
 
-```
-$ npm install imagemin-mozjpeg
+```shell
+npm install imagemin-mozjpeg
 ```
 
 ## Usage
@@ -15,14 +15,14 @@ import imagemin from 'imagemin';
 import imageminMozjpeg from 'imagemin-mozjpeg';
 
 (async () => {
-	await imagemin(['images/*.jpg'], {
-		destination: 'build/images',
-		plugins: [
-			imageminMozjpeg()
-		]
-	});
+  await imagemin(['images/*.jpg'], {
+    destination: 'build/images',
+    plugins: [
+      imageminMozjpeg()
+    ]
+  });
 
-	console.log('Images optimized');
+  console.log('Images optimized');
 })();
 ```
 

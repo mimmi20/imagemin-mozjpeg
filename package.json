@@ -50,6 +50,7 @@
   "devDependencies": {
     "ava": "^6.4.0",
     "is-progressive": "^5.0.1",
+    "typescript": "^5.8.3",
     "xo": "^1.1.0"
   }
 }
